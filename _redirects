@@ -1,0 +1,5 @@
+/*
+  SPA support: Redirect all requests to index.html for client-side routing
+  https://docs.netlify.com/routing/redirects/rewrites-proxies/#history-pushstate-and-single-page-apps
+*/
+/*    /index.html   200
