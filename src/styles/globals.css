@@ -1,4 +1,7 @@
 /* This file was moved from styles/globals.css to src/styles/globals.css for Netlify compatibility. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @custom-variant dark (&:is(.dark *));
 
@@ -123,7 +126,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border ring-1 ring-black/50;
   }
 
   body {
