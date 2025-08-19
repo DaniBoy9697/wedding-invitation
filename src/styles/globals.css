@@ -126,7 +126,7 @@
 
 @layer base {
   * {
-    @apply border-border ring-1 ring-black/50;
+    @apply border-border outline outline-2 outline-black/50;
   }
 
   body {
