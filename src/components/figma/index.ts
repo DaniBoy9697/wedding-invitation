@@ -1,1 +1,1 @@
-export * from '../../../components/figma/ImageWithFallback';
+export { default as ImageWithFallback } from './ImageWithFallback';

@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import ImageWithFallback from './figma/ImageWithFallback';
 import { Card } from './ui/card';
 
 export function PhotoCarousel() {

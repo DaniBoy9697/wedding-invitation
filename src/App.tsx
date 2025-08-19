@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
-import { Button } from '../components/ui/button';
-import { Badge } from '../components/ui/badge';
-import { Separator } from '../components/ui/separator';
-import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import { PhotoCarousel } from '../components/PhotoCarousel';
-import { CountdownTimer } from '../components/CountdownTimer';
-import { MusicPlayer } from '../components/MusicPlayer';
+import { Card, CardContent, CardHeader, CardTitle, Button, Badge, Separator } from './components/ui';
+import { ImageWithFallback } from './components/figma';
+import { PhotoCarousel } from './components/PhotoCarousel';
+import { CountdownTimer } from './components/CountdownTimer';
+import { MusicPlayer } from './components/MusicPlayer';
 import { Heart, MapPin, Calendar, Clock, Users, Shirt } from 'lucide-react';
 
 export default function App() {

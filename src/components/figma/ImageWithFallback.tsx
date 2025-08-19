@@ -8,7 +8,7 @@ interface ImageWithFallbackProps extends React.ImgHTMLAttributes<HTMLImageElemen
   alt?: string
 }
 
-export function ImageWithFallback(props: ImageWithFallbackProps) {
+const ImageWithFallback = (props: ImageWithFallbackProps) => {
   const [didError, setDidError] = useState(false)
 
   const handleError = () => {
@@ -30,3 +30,5 @@ export function ImageWithFallback(props: ImageWithFallbackProps) {
     <img src={src} alt={alt} className={className} style={style} {...rest} onError={handleError} />
   )
 }
+
+export default ImageWithFallback;
