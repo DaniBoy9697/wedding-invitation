@@ -125,7 +125,7 @@
 }
 
 @layer base {
-  * {
+  input, textarea, select, button {
     @apply border-border outline outline-2 outline-black/50;
   }
 
