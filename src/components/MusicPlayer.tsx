@@ -46,9 +46,9 @@ export function MusicPlayer() {
     }
   };
 
-  return (
+    return (
     <div className="fixed top-6 right-6 z-50">
-      <Card className="bg-white/95 border-emerald-200 shadow-2xl backdrop-blur-sm">
+      <Card className="bg-white/95 border-blue-200 shadow-2xl backdrop-blur-sm" style={{ borderColor: '#90a8c2' }}>
         <CardContent className="p-4">
           <div className="flex items-center gap-3">
             <audio
@@ -62,7 +62,8 @@ export function MusicPlayer() {
               variant="ghost"
               size="sm"
               onClick={togglePlayPause}
-              className="text-emerald-600 hover:text-emerald-800 hover:bg-emerald-100"
+              className="hover:bg-blue-100"
+              style={{ color: '#026b67' }}
             >
               {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
             </Button>
@@ -71,23 +72,31 @@ export function MusicPlayer() {
               variant="ghost"
               size="sm"
               onClick={toggleMute}
-              className="text-emerald-600 hover:text-emerald-800 hover:bg-emerald-100"
+              className="hover:bg-blue-100"
+              style={{ color: '#026b67' }}
             >
               {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
             </Button>
             
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.1"
-              value={volume}
-              onChange={handleVolumeChange}
-              className="w-20 h-2 bg-emerald-200 rounded-lg appearance-none cursor-pointer emerald-slider"
-            />
+            <div className="volume-slider-container">
+              <div className="volume-slider-track"></div>
+              <div 
+                className="volume-slider-fill" 
+                style={{ width: `${volume * 100}%` }}
+              ></div>
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.1"
+                value={volume}
+                onChange={handleVolumeChange}
+                className="volume-slider"
+              />
+            </div>
           </div>
           
-          <div className="text-xs text-emerald-600 mt-2 text-center font-medium">
+          <div className="text-xs mt-2 text-center font-medium" style={{ color: '#026b67' }}>
             Nuestra canción
           </div>
         </CardContent>
