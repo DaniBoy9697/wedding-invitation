@@ -16,14 +16,16 @@ export default function App() {
     name: "Ex-Convento de San Guillermo",
     address: "Ignacio Aldama, Purisima Concepción, 62830 Totolapan, Mor.",
     time: "1:00 PM",
-    embedUrl: "https://maps.app.goo.gl/E5NCE1NCx2xxFoeL6"
+    embedUrl: "https://maps.app.goo.gl/E5NCE1NCx2xxFoeL6",
+    image: "/images/ceremony.jpg"
   };
 
   const ceremoniaCivil = {
     name: "Jardín los Faroles",
     address: "Carretera Federal 113, Oaxtepec Xochimilco Km. 64, 2 Barrio, Santa Ana, 62540 Tlayacapan, Mor.",
     time: "3:30 PM",
-    embedUrl: "https://maps.app.goo.gl/8GfKXR1A7BUM5ZVo7"
+    embedUrl: "https://maps.app.goo.gl/8GfKXR1A7BUM5ZVo7",
+    image: "/images/reception.jpg"
   };
 
   return (
@@ -96,6 +98,26 @@ export default function App() {
             <div className="w-32 h-1 mx-auto rounded-full" style={{ backgroundColor: '#026b67' }}></div>
           </div>
           <PhotoCarousel />
+          {/* Video de YouTube */}
+          <div className="mt-16">
+            <Card className="overflow-hidden bg-white/95 shadow-2xl backdrop-blur-sm" style={{ borderColor: '#90a8c2' }}>
+              <CardContent className="p-0">
+                <div className="aspect-video">
+                  <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/Ps9qoCpO_D8" 
+                    title="Yanahi &amp; Alfredo | 16 diciembre 2023" 
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin" 
+                    allowFullScreen
+                    className="rounded-xl"
+                  ></iframe>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
@@ -127,14 +149,11 @@ export default function App() {
                 <p className="text-xl" style={{ color: '#909d8b' }}>{ceremonyReligiosa.name}</p>
                 <p className="text-stone-600">{ceremonyReligiosa.address}</p>
                 <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                  <iframe
-                    src={ceremonyReligiosa.embedUrl}
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
+                  <ImageWithFallback
+                    src={ceremonyReligiosa.image}
+                    alt="Ceremonia Religiosa"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <Button 
                   className="w-full mt-4" 
@@ -160,14 +179,11 @@ export default function App() {
                 <p className="text-xl" style={{ color: '#909d8b' }}>{ceremoniaCivil.name}</p>
                 <p className="text-stone-600">{ceremoniaCivil.address}</p>
                 <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                  <iframe
-                    src={ceremoniaCivil.embedUrl}
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
+                  <ImageWithFallback
+                    src={ceremoniaCivil.image}
+                    alt="Ceremonia Religiosa"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <Button 
                   className="w-full mt-4" 
@@ -198,40 +214,7 @@ export default function App() {
             <div className="w-32 h-1 mx-auto rounded-full" style={{ backgroundColor: '#026b67' }}></div>
           </div>
           <Card className="bg-white/90 text-center shadow-2xl backdrop-blur-sm" style={{ borderColor: '#90a8c2' }}>
-            <CardHeader className="py-12">
-              <CardTitle className="text-4xl text-center mb-8" style={{ color: '#026b67' }}>
-                Formal
-              </CardTitle>
-            {/* Iconos de vestimenta formal */}
-            <div className="flex items-center justify-center gap-16 mb-10">
-              {/* Icono de vestido */}
-              <div className="flex flex-col items-center">
-                <div className="w-28 h-36 mb-4 flex items-center justify-center">
-                  <ImageWithFallback
-                    src="https://cdn-icons-png.flaticon.com/512/5626/5626322.png"
-                    alt="Dama - Vestido formal"
-                    className="w-full h-full object-contain"
-                    style={{ filter: 'hue-rotate(180deg) saturate(1.2)' }}
-                  />
-                </div>
-                <span className="text-base mt-4" style={{ color: '#026b67' }}>Dama</span>
-              </div>
-              
-              {/* Icono de traje/smoking */}
-              <div className="flex flex-col items-center">
-                <div className="w-28 h-36 mb-4 flex items-center justify-center">
-                  <ImageWithFallback
-                    src="https://cdn-icons-png.flaticon.com/512/25/25978.png"
-                    alt="Caballero - Traje formal"
-                    className="w-full h-full object-contain"
-                    style={{ filter: 'hue-rotate(180deg) saturate(1.2)' }}
-                  />
-                </div>
-                <span className="text-base mt-4" style={{ color: '#026b67' }}>Caballero</span>
-              </div>
-            </div>
-            </CardHeader>
-            <CardContent className="space-y-8 pb-12">
+            <CardContent className="space-y-8 py-12">
               <p className="text-lg max-w-2xl mx-auto" style={{ color: '#0b3156' }}>
                 Para nosotros es más importante que asistas cómodo para pasar un gran momento. 
                 Solo te pedimos respetar los colores de los novios, damas de honor y caballeros de honor.
@@ -251,7 +234,7 @@ export default function App() {
                   <span className="font-medium text-sm" style={{ color: '#0b3156' }}>No Beige</span>
                 </div>
                 <div className="flex flex-col items-center gap-3 p-4 rounded-xl border" style={{ borderColor: '#90a8c2', backgroundColor: 'rgba(241, 204, 134, 0.1)' }}>
-                  <div className="w-12 h-12 rounded-full border-4 border-gray-300" style={{ backgroundColor: '#22c55e' }}></div>
+                  <div className="w-12 h-12 rounded-full border-4 border-gray-300" style={{ backgroundColor: '#7c8862' }}></div>
                   <span className="font-medium text-sm" style={{ color: '#0b3156' }}>No Verde</span>
                 </div>
               </div>
@@ -266,9 +249,9 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl border border-red-200 bg-red-50">
-                <p className="text-red-700 font-medium">
-                  ⚠️ Evento sin niños
+              <div className="p-4 rounded-xl border border-green-200 bg-green-50">
+                <p className="font-medium" style={{ color: '#026b67' }}>
+                  Con mucho cariño queremos contarles que nuestra boda está planeada como un evento para adultos, ya que habrá elementos que no son adecuados para niños. Esperamos de corazón que puedan acompañarnos a festejar.
                 </p>
               </div>
             </CardContent>
@@ -291,10 +274,9 @@ export default function App() {
             <div className="w-32 h-1 mx-auto rounded-full" style={{ backgroundColor: '#026b67' }}></div>
           </div>
           <Card className="bg-white/90 text-center shadow-2xl backdrop-blur-sm" style={{ borderColor: '#90a8c2' }}>
-            <CardHeader className="py-12">
+            <CardHeader className="pt-12">
               <CardTitle className="flex items-center justify-center gap-4 text-4xl" style={{ color: '#026b67' }}>
                 <Gift className="h-10 w-10" />
-                Regalos
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-8 pb-12">
@@ -318,11 +300,11 @@ export default function App() {
 
               <div className="p-6 rounded-2xl border" style={{ borderColor: '#90a8c2', backgroundColor: 'rgba(144, 168, 194, 0.1)' }}>
                 <h4 className="font-medium mb-4" style={{ color: '#026b67' }}>Si de por si no sabes que regalarnos puedes apoyarnos a esta cuenta</h4>
-                {/*<p className="text-sm" style={{ color: '#909d8b' }}>
-                  12746 87931297834 90349034
-                </p>*/}
+                <p className="text-sm" style={{ color: '#909d8b' }}>
+                  BBVA
+                </p>
                 <p className="mt-2 font-mono text-sm p-3 rounded border" style={{ backgroundColor: 'white', borderColor: '#90a8c2' }}>
-                  Detalles de cuenta bancaria 12746 87931297834 90349034
+                  CLABE 120 180 015975875412
                 </p>
               </div>
             </CardContent>

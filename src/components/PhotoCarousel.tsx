@@ -47,9 +47,49 @@ export function PhotoCarousel() {
       caption: 'Juntos para siempre'
     },
     {
-      src: '/images/photo6.jpg',
+      src: '/images/photo5.jpg',
       alt: 'Momento romántico 5',
       caption: 'Nuestros momentos especiales'
+    },
+        {
+      src: '/images/photo6.jpg',
+      alt: 'Momento romántico 1',
+      caption: 'Nuestro primer encuentro'
+    },
+    {
+      src: '/images/photo7.jpg',
+      alt: 'Momento romántico 2',
+      caption: 'El día de la propuesta'
+    },
+    {
+      src: '/images/photo8.jpg',
+      alt: 'Momento romántico 3',
+      caption: 'Preparando nuestro futuro'
+    },
+    {
+      src: '/images/photo9.jpg',
+      alt: 'Momento romántico 4',
+      caption: 'Juntos para siempre'
+    },
+    {
+      src: '/images/photo10.jpg',
+      alt: 'Momento romántico 5',
+      caption: 'Nuestros momentos especiales'
+    },
+    {
+      src: '/images/photo11.jpg',
+      alt: 'Momento romántico 1',
+      caption: 'Nuestro primer encuentro'
+    },
+    {
+      src: '/images/photo12.jpg',
+      alt: 'Momento romántico 2',
+      caption: 'El día de la propuesta'
+    },
+    {
+      src: '/images/photo13.jpg',
+      alt: 'Momento romántico 3',
+      caption: 'Preparando nuestro futuro'
     }
   ];
 
