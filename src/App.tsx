@@ -216,7 +216,7 @@ export default function App() {
           <Card className="bg-white/90 text-center shadow-2xl backdrop-blur-sm" style={{ borderColor: '#90a8c2' }}>
             <CardContent className="space-y-8 py-12">
               <p className="text-lg max-w-2xl mx-auto" style={{ color: '#0b3156' }}>
-                Para nosotros es más importante que asistas comodo y con la actitud de pasar un gran momento y divertirte, considera como quieres salir en las fotos; solo te pedimos respetar los colores de los novios, damas y caballeros de honor.
+                Para nosotros es más importante que asistas cómodo y con la actitud de pasar un gran y divertido momento, considera cómo quieres salir en las fotos; solamente te pedimos que respetes los colores de los novios, damas y caballeros de honor.
               </p>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
@@ -243,7 +243,10 @@ export default function App() {
                 <div className="text-center">
                   <h4 className="font-medium mb-2" style={{ color: '#0b3156' }}>Puntualidad</h4>
                   <p className="text-sm" style={{ color: '#909d8b' }}>
-                    Eres especial para nosotros por eso te pedimos puntualidad para que nos acompañes en todo el evento
+                    Eres especial para nosotros, por eso, te pedimos puntualidad, para que nos acompañes de inicio a fin en nuestro evento.
+                  </p>
+                  <p className="text-sm" style={{ color: '#909d8b' }}>
+                    Nuestro banquete y la fiesta tienen un horario establecido, por lo que les pedimos ser puntuales para que juntos disfrutemos cada momento.
                   </p>
                 </div>
               </div>
