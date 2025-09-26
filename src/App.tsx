@@ -23,7 +23,7 @@ export default function App() {
   const ceremoniaCivil = {
     name: "Jardín los Faroles",
     address: "Carretera Federal 113, Oaxtepec Xochimilco Km. 64, 2 Barrio, Santa Ana, 62540 Tlayacapan, Mor.",
-    time: "3:30 PM",
+    time: "3:00 PM",
     embedUrl: "https://maps.app.goo.gl/8GfKXR1A7BUM5ZVo7",
     image: "/images/reception.jpg"
   };
@@ -216,8 +216,7 @@ export default function App() {
           <Card className="bg-white/90 text-center shadow-2xl backdrop-blur-sm" style={{ borderColor: '#90a8c2' }}>
             <CardContent className="space-y-8 py-12">
               <p className="text-lg max-w-2xl mx-auto" style={{ color: '#0b3156' }}>
-                Para nosotros es más importante que asistas cómodo para pasar un gran momento. 
-                Solo te pedimos respetar los colores de los novios, damas de honor y caballeros de honor.
+                Para nosotros es más importante que asistas comodo y con la actitud de pasar un gran momento y divertirte, considera como quieres salir en las fotos; solo te pedimos respetar los colores de los novios, damas y caballeros de honor.
               </p>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
@@ -281,7 +280,7 @@ export default function App() {
             </CardHeader>
             <CardContent className="space-y-8 pb-12">
               <p className="text-lg max-w-2xl mx-auto" style={{ color: '#0b3156' }}>
-                Lo más importante es tu presencia, pero si deseas hacer un regalo puede llegar con él, 
+                Lo más importante es tu presencia, pero si deseas hacer un regalo puede llegar con el, 
                 si no sabes que regalarnos te dejamos opciones
               </p>
               
