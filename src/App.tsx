@@ -216,25 +216,25 @@ export default function App() {
           <Card className="bg-white/90 text-center shadow-2xl backdrop-blur-sm" style={{ borderColor: '#90a8c2' }}>
             <CardContent className="space-y-8 py-12">
               <p className="text-lg max-w-2xl mx-auto" style={{ color: '#0b3156' }}>
-                Para nosotros es más importante que asistas cómodo y con la actitud de pasar un gran y divertido momento, considera cómo quieres salir en las fotos; solamente te pedimos que respetes los colores de los novios, damas y caballeros de honor.
+                Para nosotros es más importante que asistas cómodo y con la actitud de pasar un gran y divertido momento, considera cómo quieres salir en las fotos; solamente te pedimos que consideres los colores de los novios, damas y caballeros de honor.
               </p>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
                 <div className="flex flex-col items-center gap-3 p-4 rounded-xl border" style={{ borderColor: '#90a8c2', backgroundColor: 'rgba(241, 204, 134, 0.1)' }}>
-                  <div className="w-12 h-12 rounded-full border-4 border-gray-300" style={{ backgroundColor: '#ffffff' }}></div>
-                  <span className="font-medium text-sm" style={{ color: '#0b3156' }}>No Blanco</span>
+                  <div className="w-12 h-12 rounded-full border-4 border-gray-200" style={{ backgroundColor: '#ffffff' }}></div>
+                  <span className="font-medium text-sm" style={{ color: '#0b3156' }}>Blanco novia</span>
                 </div>
                 <div className="flex flex-col items-center gap-3 p-4 rounded-xl border" style={{ borderColor: '#90a8c2', backgroundColor: 'rgba(241, 204, 134, 0.1)' }}>
-                  <div className="w-12 h-12 rounded-full border-4 border-gray-300" style={{ backgroundColor: '#1e3a8a' }}></div>
-                  <span className="font-medium text-sm" style={{ color: '#0b3156' }}>No Azul Marino</span>
+                  <div className="w-12 h-12 rounded-full border-4 border-gray-200" style={{ backgroundColor: '#1e3a8a' }}></div>
+                  <span className="font-medium text-sm" style={{ color: '#0b3156' }}>Azul marino novio</span>
                 </div>
                 <div className="flex flex-col items-center gap-3 p-4 rounded-xl border" style={{ borderColor: '#90a8c2', backgroundColor: 'rgba(241, 204, 134, 0.1)' }}>
-                  <div className="w-12 h-12 rounded-full border-4 border-gray-300" style={{ backgroundColor: '#f5f5dc' }}></div>
-                  <span className="font-medium text-sm" style={{ color: '#0b3156' }}>No Beige</span>
+                  <div className="w-12 h-12 rounded-full border-4 border-gray-200" style={{ backgroundColor: '#d9dad6' }}></div>
+                  <span className="font-medium text-sm" style={{ color: '#0b3156' }}>Gris caballeros de honor</span>
                 </div>
                 <div className="flex flex-col items-center gap-3 p-4 rounded-xl border" style={{ borderColor: '#90a8c2', backgroundColor: 'rgba(241, 204, 134, 0.1)' }}>
-                  <div className="w-12 h-12 rounded-full border-4 border-gray-300" style={{ backgroundColor: '#7c8862' }}></div>
-                  <span className="font-medium text-sm" style={{ color: '#0b3156' }}>No Verde</span>
+                  <div className="w-12 h-12 rounded-full border-4 border-gray-200" style={{ backgroundColor: '#7c8862' }}></div>
+                  <span className="font-medium text-sm" style={{ color: '#0b3156' }}>Verde damas de honor</span>
                 </div>
               </div>
 
