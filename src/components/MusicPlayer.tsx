@@ -7,96 +7,100 @@ export function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0.3);
-  const [hasStarted, setHasStarted] = useState(false);
   const [audioError, setAudioError] = useState(false);
-  const [canAutoplay, setCanAutoplay] = useState(true);
+  const [autoplayBlocked, setAutoplayBlocked] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   // URL del archivo de audio local en formato m4a
   const musicUrl = '/audio/song.m4a';
 
+  // Configuración inicial del audio
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
       audioRef.current.loop = true;
-      
-
-      const handleError = (e = {}) => {
-        console.error('Error al cargar el audio:', e);
-        setAudioError(true);
-        setCanAutoplay(false);
-      };
-
-      const handleCanPlay = () => {
-        setAudioError(false);
-      };
-
-      audioRef.current.addEventListener('error', handleError);
-      audioRef.current.addEventListener('canplay', handleCanPlay);
-      
-      return () => {
-        if (audioRef.current) {
-          audioRef.current.removeEventListener('error', handleError);
-          audioRef.current.removeEventListener('canplay', handleCanPlay);
-        }
-      };
     }
-  }, [volume, hasStarted]);
+  }, []);
 
-  // Auto-reproducir al cargar la página
+  // Intento de autoplay inmediato al cargar
   useEffect(() => {
-    const autoPlay = async () => {
-      if (audioRef.current && !hasStarted && !audioError && canAutoplay) {
-        try {
-          // Esperar 2 segundos para que la página se cargue completamente
-          const timer = setTimeout(async () => {
-            if (audioRef.current && !hasStarted) {
-              // Verificar si el audio está listo
-              if (audioRef.current.readyState >= 2) { // HAVE_CURRENT_DATA
-                await audioRef.current.play();
-                setIsPlaying(true);
-                setHasStarted(true);
-                console.log('Reproducción automática iniciada');
-              } else {
-                // Si no está listo, esperar a que se cargue
-                const handleCanPlayThrough = async () => {
-                  if (audioRef.current && !hasStarted) {
-                    await audioRef.current.play();
-                    setIsPlaying(true);
-                    setHasStarted(true);
-                    console.log('Reproducción automática iniciada (después de carga)');
-                  }
-                };
-                audioRef.current.addEventListener('canplaythrough', handleCanPlayThrough, { once: true });
-              }
-            }
-          }, 2000);
+    const attemptAutoplay = async () => {
+      if (!audioRef.current || audioError) return;
 
-          return () => clearTimeout(timer);
-        } catch (err) {
-          console.log('Autoplay bloqueado por el navegador:', err);
-          setCanAutoplay(false);
-          // Mostrar indicación visual de que el usuario debe hacer clic
-        }
+      try {
+        // Esperar a que el audio esté listo
+        audioRef.current.addEventListener('canplaythrough', async () => {
+          try {
+            await audioRef.current!.play();
+            setIsPlaying(true);
+            console.log('Autoplay exitoso');
+          } catch (err) {
+            console.log('Autoplay bloqueado por el navegador');
+            setAutoplayBlocked(true);
+          }
+        }, { once: true });
+
+        // Cargar el audio
+        audioRef.current.load();
+
+      } catch (err) {
+        console.error('Error en autoplay:', err);
+        setAutoplayBlocked(true);
       }
     };
 
-    autoPlay();
-  }, [hasStarted, audioError, canAutoplay]);
+    // Pequeño delay para asegurar que el DOM esté listo
+    const timer = setTimeout(attemptAutoplay, 500);
+    
+    return () => clearTimeout(timer);
+  }, [audioError]);
+
+  // Manejo de errores del audio
+  useEffect(() => {
+    const audioElement = audioRef.current;
+    
+    const handleError = () => {
+      console.error('Error al cargar el audio');
+      setAudioError(true);
+    };
+
+    const handleLoadStart = () => {
+      console.log('Iniciando carga del audio...');
+      setAudioError(false);
+    };
+
+    const handleLoadedData = () => {
+      console.log('Audio cargado exitosamente');
+      setAudioError(false);
+    };
+
+    if (audioElement) {
+      audioElement.addEventListener('error', handleError);
+      audioElement.addEventListener('loadstart', handleLoadStart);
+      audioElement.addEventListener('loadeddata', handleLoadedData);
+
+      return () => {
+        audioElement.removeEventListener('error', handleError);
+        audioElement.removeEventListener('loadstart', handleLoadStart);
+        audioElement.removeEventListener('loadeddata', handleLoadedData);
+      };
+    }
+  }, []);
 
   const togglePlayPause = async () => {
     if (audioRef.current && !audioError) {
       try {
         if (isPlaying) {
           audioRef.current.pause();
+          setIsPlaying(false);
         } else {
           await audioRef.current.play();
+          setIsPlaying(true);
+          setAutoplayBlocked(false); // Ya no está bloqueado después de interacción manual
         }
-        setIsPlaying(!isPlaying);
       } catch (err) {
         console.error('Error al reproducir audio:', err);
         setAudioError(true);
-        setCanAutoplay(false);
       }
     }
   };
@@ -126,21 +130,6 @@ export function MusicPlayer() {
               src={musicUrl}
               preload="auto"
               onEnded={() => setIsPlaying(false)}
-              onError={(e) => {
-                setAudioError(true);
-                setCanAutoplay(false);
-              }}
-              onCanPlayThrough={() => {
-                console.log('Audio listo para reproducir');
-                setAudioError(false);
-              }}
-              onLoadStart={() => {
-                console.log('Iniciando carga del audio...');
-              }}
-              onLoadedData={() => {
-                console.log('Audio cargado exitosamente');
-                setAudioError(false);
-              }}
             />
             
             <Button
@@ -190,13 +179,13 @@ export function MusicPlayer() {
               <div className="text-red-600">
                 ♫ Audio no disponible
                 <div className="text-xs opacity-75 mt-1">
-                  Coloca el archivo en /public/audio/wedding-song.m4a
+                  Coloca el archivo en /public/audio/song.m4a
                 </div>
               </div>
             ) : (
               <>
                 Nuestra canción ♫
-                {!canAutoplay && !hasStarted && (
+                {autoplayBlocked && (
                   <div className="text-xs opacity-75 mt-1 animate-pulse">
                     Haz clic para reproducir
                   </div>
