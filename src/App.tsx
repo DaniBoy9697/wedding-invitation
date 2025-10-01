@@ -216,7 +216,7 @@ export default function App() {
           <Card className="bg-white/90 text-center shadow-2xl backdrop-blur-sm" style={{ borderColor: '#90a8c2' }}>
             <CardContent className="space-y-8 py-12">
               <p className="text-lg max-w-2xl mx-auto" style={{ color: '#0b3156' }}>
-                Para nosotros es más importante que asistas cómodo y con la actitud de pasar un gran y divertido momento, considera cómo quieres salir en las fotos; solamente te pedimos que consideres los colores de los novios, damas y caballeros de honor.
+                Para nosotros es más importante que asistan cómodos y con la actitud de pasar un gran y divertido momento, considera cómo quieres salir en las fotos; solamente te pedimos que consideres los colores de los novios, damas y caballeros de honor.
               </p>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
