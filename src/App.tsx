@@ -330,6 +330,11 @@ export default function App() {
             Yanahi Andrea Ramírez Patrón & José Alfredo Velázquez González
           </p>
         </div>
+        <div className="max-w-6xl mx-auto text-white pt-8">
+          <p className="text-sm font-serif" style={{ color: '#f1cc86' }}>
+            Hecho con el corazón por Devcye
+          </p>
+        </div>
       </footer>
     </div>
   );
