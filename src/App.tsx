@@ -306,7 +306,7 @@ export default function App() {
                   BBVA
                 </p>
                 <p className="mt-2 font-mono text-sm p-3 rounded border" style={{ backgroundColor: 'white', borderColor: '#90a8c2' }}>
-                  CLABE 120 180 015975875412
+                  CLABE 012 180 015975875412
                 </p>
               </div>
             </CardContent>
